@@ -6,11 +6,12 @@
 /*   By: ayvasseur <#######@#############>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/18 17:30:07 by ayvasseur         #+#    #+#             */
-/*   Updated: 2015/06/18 20:19:34 by ayvasseur        ###   ########.fr       */
+/*   Updated: 2015/06/18 20:26:14 by ayvasseur        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <string.h>
 
 static void	ft_putchar(char c)
 {
@@ -81,10 +82,11 @@ static int	ft_analyse(char *s, char *p)
 
 int			main(int argc, char **argv)
 {
-	static char octet[2048 + 1];
+	static char		final_string[1048 + 1];
 
-	if (argc == 2)
-		return (ft_analyse(argv[1], octet));
-	ft_putchar('\n');
+	if (argc == 2 && strlen(argv[1]) < 1048)
+		ft_analyse(argv[1], final_string);
+	else
+		ft_putchar('\n');
 	return (0);
 }
